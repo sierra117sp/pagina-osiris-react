@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inicio.css">
+    <title>Osiris-Project</title>
+</head>
+<body>
+<div class="custom-cursor"></div>
+    
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="img/l2.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="page-transition" id="pageTransition"></div>
+    
+    <div class="background-container">
+        <div class="background-image"></div>
+        <div class="custom-background"></div>
+        <div class="background-overlay"></div>
+    </div>
+
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+    <div class="energy-orb"></div>
+
+    <div class="lightning-effect">
+        <div class="lightning-flash"></div>
+        <div class="lightning-flash"></div>
+        <div class="lightning-flash"></div>
+    </div>
+
+    <div class="welcome-container">
+        <div class="logo-section">
+            <div class="main-logo" onclick="enterSite()">
+                <img src="img/logo osiris.png" alt="Osiris" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+        
+        <div class="title-section">
+            <h1 class="main-title">OSIRIS-PROJECT</h1>
+            <p class="subtitle">El Destino Te Espera</p>
+        </div>
+
+        <div class="entry-section">
+            <p class="entry-text">Prepárate para una experiencia única y legendaria</p>
+            <a href="main.html" class="enter-button" onclick="enterSite()">
+                Entra Al Reino
+            </a>
+        </div>
+    </div>
+
+    <div class="click-anywhere">
+       ENTRA YA!
+    </div>
+
+    <div class="audio-visualizer">
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+        <div class="audio-bar"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-logo footer-left">
+            <img src="img/osirs-dev.png" alt="Logo Izquierdo">
+        </div>
+        
+        <div class="footer-logo footer-right">
+            <img src="img/osirisstudio.png" alt="Logo Derecho">
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.querySelector('.custom-cursor');
+            if (cursor) {
+                cursor.style.left = (e.clientX - 10) + 'px';
+                cursor.style.top = (e.clientY - 10) + 'px';
+            }
+            
+            const mouseXNorm = e.clientX / window.innerWidth;
+            const mouseYNorm = e.clientY / window.innerHeight;
+            
+            const energyOrbs = document.querySelectorAll('.energy-orb');
+            energyOrbs.forEach((orb, index) => {
+                const speed = (index + 1) * 0.5;
+                const x = mouseXNorm * speed;
+                const y = mouseYNorm * speed;
+                orb.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+
+        function enterSite() {
+            const transition = document.getElementById('pageTransition');
+            transition.classList.add('active');
+            
+            setTimeout(() => {
+                console.log('Entrando al sitio principal...');
+                transition.classList.remove('active');
+            }, 1000);
+        }
+
+        function createParticles() {
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                document.body.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                enterSite();
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.enter-button') && !e.target.closest('.main-logo')) {
+                enterSite();
+            }
+        });
+
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            setTimeout(() => {
+                document.body.style.animation = 'none';
+            }, 2000);
+        });
+
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = 'main.html';
+        document.head.appendChild(link);
+    </script>
+</body>
+</html>
