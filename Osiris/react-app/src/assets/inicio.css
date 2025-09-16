@@ -1,0 +1,157 @@
+/* Fondo degradado animado para la bienvenida */
+.welcome-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  z-index: 1;
+}
+
+.welcome-container {
+  background: rgba(20, 24, 40, 0.98);
+  border-radius: 32px;
+  box-shadow: 0 8px 64px #000b, 0 0 0 8px #2227;
+  padding: 3.5rem 2.5rem 7rem 2.5rem;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  gap: 1.2rem;
+  border: 1.5px solid #4facfe55;
+  backdrop-filter: blur(2.5px);
+  box-sizing: border-box;
+}
+
+.main-logo {
+  box-shadow: 0 0 40px #00f2fe99, 0 0 80px #4facfe55;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  border: 4px solid #fff3;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 1.2rem;
+}
+.main-logo:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 0 80px #00f2fecc, 0 0 120px #4facfe99;
+}
+
+.main-title {
+  font-family: 'Orbitron', 'Cinzel', serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  background: linear-gradient(90deg, #fff, #00f2fe, #4facfe, #fff 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px #00f2fe55, 0 0 10px #fff8;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.subtitle {
+  color: #00f2fe;
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 0 10px #4facfe55;
+  text-align: center;
+}
+.entry-section {
+  margin-bottom: 2.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.entry-text {
+  color: #fff;
+  font-size: 1.08rem;
+  margin-bottom: 1.1rem;
+  text-shadow: 0 0 10px #00f2fe33;
+  text-align: center;
+}
+.enter-button {
+  background: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
+  color: #fff;
+  font-family: 'Orbitron', monospace;
+  font-size: 1.08rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 40px;
+  padding: 1rem 2.2rem;
+  box-shadow: 0 0 20px #00f2fe55;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+}
+.enter-button:hover {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  transform: scale(1.06) translateY(-1.5px);
+  box-shadow: 0 0 40px #00f2fe99;
+}
+.bottom-logos {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2.2rem 2.5rem 1.2rem 2.5rem;
+  pointer-events: none;
+  z-index: 20;
+}
+.bottom-logos img {
+  width: 80px;
+  height: 80px;
+  opacity: 0.92;
+  pointer-events: auto;
+  filter: drop-shadow(0 0 18px #00f2fe99);
+  border-radius: 16px;
+  background: #16213e;
+  animation: logoFadeIn 1.2s ease;
+}
+@keyframes logoFadeIn {
+  from { opacity: 0; transform: translateY(40px) scale(0.8); }
+  to { opacity: 0.92; transform: translateY(0) scale(1); }
+}
+.click-anywhere {
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  margin-top: 2.5rem;
+  text-shadow: 0 0 10px #00f2fe55;
+  animation: blink 1.2s infinite alternate;
+}
+@keyframes blink {
+  from { opacity: 1; }
+  to { opacity: 0.5; }
+}
+/* Copia de inicio.css para React */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', monospace;
+  background: #000;
+  /* overflow: hidden; */
+  /* cursor: none; */
+}
+
+/* ...resto del CSS copiado de inicio.css... */
+
+/* Puedes copiar aquí todo el contenido de inicio.css si lo deseas, o importar desde public si prefieres */
